@@ -8,5 +8,5 @@ channels:
 dependencies:
   - agat=0.5.1
   - seqkit=0.15.0
-  # - snakemake=5.32.2
+  
   
