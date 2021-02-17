@@ -29,7 +29,7 @@ SAMPLES, = glob_wildcards("{samples}.fa")
 
 rule final:
     input:
-        expand("{samples}.cds", samples = SAMPLES)
+        expand("{samples}.pep", samples = SAMPLES)
 
 rule gff3_to_gtf:
     input:
@@ -47,3 +47,12 @@ rule gtf_to_cds:
         "{samples}.cds"
     shell:
         "seqkit subseq --gtf {input.gtf} {input.fasta} > {output}"
+
+rule cds_to_pep:
+    input:
+        "{sample}.cds"
+    output:
+        "{sample}.pep"
+    shell:
+        "seqkit translate {input} > {output}"
+
