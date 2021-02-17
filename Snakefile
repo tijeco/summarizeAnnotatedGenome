@@ -19,7 +19,7 @@ rule gtf_to_cds:
     output:
         "{samples}.cds"
     shell:
-        "seqkit --features CDS subseq --gtf {input.gtf} {input.fasta} > {output}"
+        "seqkit subseq --features CDS --gtf {input.gtf} {input.fasta} > {output}"
 
 rule cds_to_pep:
     input:
